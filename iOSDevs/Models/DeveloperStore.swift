@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import UIKit
 
 protocol StoreEntryDeveloper {
     var name: String { get set }
@@ -24,14 +25,21 @@ protocol DeveloperStoreFetcher {
 
 protocol DeveloperStoreModifier {
     func addDeveloper(_ entry: DeveloperEntry)
+    var didUpdateStore: (() -> Void)? { get set }
 }
 
 class DeveloperStore: DeveloperStoreFetcher, DeveloperStoreModifier {
+    
     //Context used by this store
     var context: NSManagedObjectContext!
     
     init(with context: NSManagedObjectContext) {
         self.context = context
+    }
+    
+    static var defaultStore: DeveloperStore {
+        let context: NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext)
+        return DeveloperStore(with: context)
     }
     
     //Get all the developers from database
@@ -51,10 +59,15 @@ class DeveloperStore: DeveloperStoreFetcher, DeveloperStoreModifier {
         do {
             try context.save()
             postNotificationForStoreChange()
+            if let didUpdateStore = didUpdateStore {
+                didUpdateStore()
+            }
         } catch {
             print(error)
         }
     }
+    
+    var didUpdateStore: (() -> Void)?
     
     private func postNotificationForStoreChange() {
         let notification = Notification(name: DeveloperStore.storeModifiedNotification)
@@ -63,5 +76,7 @@ class DeveloperStore: DeveloperStoreFetcher, DeveloperStoreModifier {
     
     
     static let storeModifiedNotification = Notification.Name(rawValue: "storeModifiedNotification")
+    
+    
     
 }

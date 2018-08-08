@@ -24,7 +24,6 @@ class AddDeveloperViewController: UITableViewController {
     //MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     //MARK: - IBActions

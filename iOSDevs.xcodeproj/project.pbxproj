@@ -19,6 +19,8 @@
 		0674809A211ADCDC00F1B92A /* DeveloperEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06748099211ADCDC00F1B92A /* DeveloperEntry.swift */; };
 		0674809C211AE1AA00F1B92A /* UIViewController+Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674809B211AE1AA00F1B92A /* UIViewController+Contents.swift */; };
 		0674809F211B08CA00F1B92A /* DeveloperDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674809E211B08CA00F1B92A /* DeveloperDetailViewController.swift */; };
+		067480A1211B1E0800F1B92A /* DeveloperTableViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067480A0211B1E0800F1B92A /* DeveloperTableViewViewModel.swift */; };
+		067480A3211B1E5900F1B92A /* DeveloperCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067480A2211B1E5900F1B92A /* DeveloperCellViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +38,8 @@
 		06748099211ADCDC00F1B92A /* DeveloperEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperEntry.swift; sourceTree = "<group>"; };
 		0674809B211AE1AA00F1B92A /* UIViewController+Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Contents.swift"; sourceTree = "<group>"; };
 		0674809E211B08CA00F1B92A /* DeveloperDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperDetailViewController.swift; sourceTree = "<group>"; };
+		067480A0211B1E0800F1B92A /* DeveloperTableViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperTableViewViewModel.swift; sourceTree = "<group>"; };
+		067480A2211B1E5900F1B92A /* DeveloperCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCellViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,21 +74,20 @@
 			children = (
 				06748084211AC04900F1B92A /* Info.plist */,
 				0674808F211AC78300F1B92A /* Supporting Files */,
-				0674808E211AC76D00F1B92A /* View Controllers */,
+				0674808E211AC76D00F1B92A /* View Models */,
 				06748090211AC79A00F1B92A /* Views */,
 				06748091211AC7AA00F1B92A /* Models */,
 			);
 			path = iOSDevs;
 			sourceTree = "<group>";
 		};
-		0674808E211AC76D00F1B92A /* View Controllers */ = {
+		0674808E211AC76D00F1B92A /* View Models */ = {
 			isa = PBXGroup;
 			children = (
-				0674808C211AC39D00F1B92A /* DeveloperTableViewController.swift */,
-				06748097211AD38600F1B92A /* AddDeveloperViewController.swift */,
-				0674809E211B08CA00F1B92A /* DeveloperDetailViewController.swift */,
+				067480A0211B1E0800F1B92A /* DeveloperTableViewViewModel.swift */,
+				067480A2211B1E5900F1B92A /* DeveloperCellViewModel.swift */,
 			);
-			path = "View Controllers";
+			path = "View Models";
 			sourceTree = "<group>";
 		};
 		0674808F211AC78300F1B92A /* Supporting Files */ = {
@@ -101,6 +104,9 @@
 		06748090211AC79A00F1B92A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				0674808C211AC39D00F1B92A /* DeveloperTableViewController.swift */,
+				06748097211AD38600F1B92A /* AddDeveloperViewController.swift */,
+				0674809E211B08CA00F1B92A /* DeveloperDetailViewController.swift */,
 				06748079211AC04700F1B92A /* Main.storyboard */,
 			);
 			path = Views;
@@ -206,7 +212,9 @@
 			files = (
 				0674809C211AE1AA00F1B92A /* UIViewController+Contents.swift in Sources */,
 				06748093211AC7E100F1B92A /* Developer.swift in Sources */,
+				067480A3211B1E5900F1B92A /* DeveloperCellViewModel.swift in Sources */,
 				0674809F211B08CA00F1B92A /* DeveloperDetailViewController.swift in Sources */,
+				067480A1211B1E0800F1B92A /* DeveloperTableViewViewModel.swift in Sources */,
 				0674808D211AC39D00F1B92A /* DeveloperTableViewController.swift in Sources */,
 				06748098211AD38600F1B92A /* AddDeveloperViewController.swift in Sources */,
 				0674809A211ADCDC00F1B92A /* DeveloperEntry.swift in Sources */,
