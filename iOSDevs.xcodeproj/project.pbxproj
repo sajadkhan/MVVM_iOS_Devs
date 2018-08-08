@@ -14,6 +14,7 @@
 		06748083211AC04900F1B92A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 06748081211AC04900F1B92A /* LaunchScreen.storyboard */; };
 		0674808D211AC39D00F1B92A /* DeveloperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674808C211AC39D00F1B92A /* DeveloperTableViewController.swift */; };
 		06748093211AC7E100F1B92A /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06748092211AC7E100F1B92A /* Developer.swift */; };
+		06748096211ACC2600F1B92A /* DeveloperStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06748095211ACC2600F1B92A /* DeveloperStore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		06748084211AC04900F1B92A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0674808C211AC39D00F1B92A /* DeveloperTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperTableViewController.swift; sourceTree = "<group>"; };
 		06748092211AC7E100F1B92A /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
+		06748095211ACC2600F1B92A /* DeveloperStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperStore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,10 +98,19 @@
 		06748091211AC7AA00F1B92A /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				06748095211ACC2600F1B92A /* DeveloperStore.swift */,
+				06748094211ACB3100F1B92A /* Core Data */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		06748094211ACB3100F1B92A /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
 				0674807C211AC04700F1B92A /* iOSDevs.xcdatamodeld */,
 				06748092211AC7E100F1B92A /* Developer.swift */,
 			);
-			path = Models;
+			path = "Core Data";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -176,6 +187,7 @@
 				06748093211AC7E100F1B92A /* Developer.swift in Sources */,
 				0674808D211AC39D00F1B92A /* DeveloperTableViewController.swift in Sources */,
 				0674807E211AC04700F1B92A /* iOSDevs.xcdatamodeld in Sources */,
+				06748096211ACC2600F1B92A /* DeveloperStore.swift in Sources */,
 				06748076211AC04700F1B92A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

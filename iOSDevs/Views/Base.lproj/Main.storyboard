@@ -18,7 +18,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="iOSDeveloperCell" textLabel="RKu-t2-Jzn" detailTextLabel="Z2X-hT-vQ5" rowHeight="63" style="IBUITableViewCellStyleValue1" id="dtc-Bt-wpN">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="developerCell" textLabel="RKu-t2-Jzn" detailTextLabel="Z2X-hT-vQ5" rowHeight="63" style="IBUITableViewCellStyleValue1" id="dtc-Bt-wpN">
                                 <rect key="frame" x="0.0" y="28" width="375" height="63"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="dtc-Bt-wpN" id="kE3-wA-Tda">
@@ -52,7 +52,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wX3-u6-FTX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="853.60000000000002" y="26.53673163418291"/>
+            <point key="canvasLocation" x="1100" y="27"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="NEX-lv-kXT">
