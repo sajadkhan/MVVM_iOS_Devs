@@ -15,6 +15,9 @@
 		0674808D211AC39D00F1B92A /* DeveloperTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674808C211AC39D00F1B92A /* DeveloperTableViewController.swift */; };
 		06748093211AC7E100F1B92A /* Developer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06748092211AC7E100F1B92A /* Developer.swift */; };
 		06748096211ACC2600F1B92A /* DeveloperStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06748095211ACC2600F1B92A /* DeveloperStore.swift */; };
+		06748098211AD38600F1B92A /* AddDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06748097211AD38600F1B92A /* AddDeveloperViewController.swift */; };
+		0674809A211ADCDC00F1B92A /* DeveloperEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06748099211ADCDC00F1B92A /* DeveloperEntry.swift */; };
+		0674809C211AE1AA00F1B92A /* UIViewController+Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674809B211AE1AA00F1B92A /* UIViewController+Contents.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +31,9 @@
 		0674808C211AC39D00F1B92A /* DeveloperTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperTableViewController.swift; sourceTree = "<group>"; };
 		06748092211AC7E100F1B92A /* Developer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Developer.swift; sourceTree = "<group>"; };
 		06748095211ACC2600F1B92A /* DeveloperStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperStore.swift; sourceTree = "<group>"; };
+		06748097211AD38600F1B92A /* AddDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeveloperViewController.swift; sourceTree = "<group>"; };
+		06748099211ADCDC00F1B92A /* DeveloperEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperEntry.swift; sourceTree = "<group>"; };
+		0674809B211AE1AA00F1B92A /* UIViewController+Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Contents.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,7 @@
 			isa = PBXGroup;
 			children = (
 				0674808C211AC39D00F1B92A /* DeveloperTableViewController.swift */,
+				06748097211AD38600F1B92A /* AddDeveloperViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -80,6 +87,7 @@
 		0674808F211AC78300F1B92A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				0674809D211AE1BF00F1B92A /* Helpers */,
 				06748075211AC04700F1B92A /* AppDelegate.swift */,
 				0674807F211AC04900F1B92A /* Assets.xcassets */,
 				06748081211AC04900F1B92A /* LaunchScreen.storyboard */,
@@ -99,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				06748095211ACC2600F1B92A /* DeveloperStore.swift */,
+				06748099211ADCDC00F1B92A /* DeveloperEntry.swift */,
 				06748094211ACB3100F1B92A /* Core Data */,
 			);
 			path = Models;
@@ -111,6 +120,14 @@
 				06748092211AC7E100F1B92A /* Developer.swift */,
 			);
 			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		0674809D211AE1BF00F1B92A /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				0674809B211AE1AA00F1B92A /* UIViewController+Contents.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -184,8 +201,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0674809C211AE1AA00F1B92A /* UIViewController+Contents.swift in Sources */,
 				06748093211AC7E100F1B92A /* Developer.swift in Sources */,
 				0674808D211AC39D00F1B92A /* DeveloperTableViewController.swift in Sources */,
+				06748098211AD38600F1B92A /* AddDeveloperViewController.swift in Sources */,
+				0674809A211ADCDC00F1B92A /* DeveloperEntry.swift in Sources */,
 				0674807E211AC04700F1B92A /* iOSDevs.xcdatamodeld in Sources */,
 				06748096211ACC2600F1B92A /* DeveloperStore.swift in Sources */,
 				06748076211AC04700F1B92A /* AppDelegate.swift in Sources */,

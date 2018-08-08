@@ -11,7 +11,7 @@ import CoreData
 
 class DeveloperTableViewController: UITableViewController {
     //Model
-    lazy var developerStore: DeveloperStore = {
+    lazy var store: DeveloperStoreFetcher = {
         let context: NSManagedObjectContext = ((UIApplication.shared.delegate as? AppDelegate)!.persistentContainer.viewContext)
         return DeveloperStore(with: context)
     }()
@@ -21,7 +21,7 @@ class DeveloperTableViewController: UITableViewController {
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        developers = try? developerStore.allDevelopers()
+        developers = try? store.fetchAllDevelopers()
     }
     
     // MARK: - TableView DataSource

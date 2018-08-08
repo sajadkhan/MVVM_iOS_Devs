@@ -9,7 +9,24 @@
 import Foundation
 import CoreData
 
-class DeveloperStore {
+protocol StoreEntryDeveloper {
+    var name: String { get set }
+    var email: String { get set }
+    var phone: String { get set }
+    var experience: String { get set }
+    var country: String { get set }
+    var isAvailable: Bool { get set }
+}
+
+protocol DeveloperStoreFetcher {
+    func fetchAllDevelopers() throws -> [Developer]
+}
+
+protocol DeveloperStoreModifier {
+    func addDeveloper(_ entry: DeveloperEntry)
+}
+
+class DeveloperStore: DeveloperStoreFetcher, DeveloperStoreModifier {
     //Context used by this store
     var context: NSManagedObjectContext!
     
@@ -18,7 +35,7 @@ class DeveloperStore {
     }
     
     //Get all the developers from database
-    func allDevelopers() throws -> [Developer] {
+    func fetchAllDevelopers() throws -> [Developer] {
         let request: NSFetchRequest<Developer> = Developer.fetchRequest()
         do {
             let developers = try context.fetch(request)
@@ -27,4 +44,24 @@ class DeveloperStore {
             throw error
         }
     }
+    
+    //Add Developer from developer entry
+    func addDeveloper(_ entry: DeveloperEntry) {
+        _ = Developer.createDeveloper(matching: entry, in: context)
+        do {
+            try context.save()
+            postNotificationForStoreChange()
+        } catch {
+            print(error)
+        }
+    }
+    
+    func postNotificationForStoreChange() {
+        let notification = Notification(name: Notification.Name(rawValue: DeveloperStore.storeModifiedNotification))
+        NotificationCenter.default.post(notification)
+    }
+    
+    
+    static let storeModifiedNotification = "storeModifiedNotification"
+    
 }
