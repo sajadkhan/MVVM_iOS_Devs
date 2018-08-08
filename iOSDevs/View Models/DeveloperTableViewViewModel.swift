@@ -10,52 +10,60 @@ import Foundation
 import CoreData
 import UIKit
 
-class DeveloperTableViewViewModel {
+protocol DeveloperTableViewViewModel {
+    
+    func numberOfDevelopers() -> Int
+    func developerCellViewModel(at index: Int) -> DeveloperCellViewModel
+    func selectDeveloperCell(at index: Int)
+    
+    var developerCellViewModels: Dynamic<[DeveloperCellViewModel]> { get }
+    var selectedDeveloper: Dynamic<Developer?> { get }
+}
+
+class DeveloperListModelView: DeveloperTableViewViewModel {
+    
+    let developerCellViewModels: Dynamic<[DeveloperCellViewModel]> = Dynamic([DeveloperCellViewModel]())
+    
+    func numberOfDevelopers() -> Int {
+        return developerCellViewModels.value.count
+    }
+    
+    func developerCellViewModel(at index: Int) -> DeveloperCellViewModel {
+        return developerCellViewModels.value[index]
+    }
+    
+    func selectDeveloperCell(at index: Int) {
+        let developer = developers![index]
+        selectedDeveloper.value = developer
+    }
+    
+    let selectedDeveloper: Dynamic<Developer?> = Dynamic(nil)
     
     var store: DeveloperStore!
     
     init(with store: DeveloperStore) {
-        let updateDevelopers = { self.developers = try? store.fetchAllDevelopers() }
+        
+        let updateDevelopers = {
+            self.developers = try? store.fetchAllDevelopers()
+            if let developers = self.developers{
+                let developerViewModels = developers.map { DeveloperCellViewModel(with: $0) }
+                self.developerCellViewModels.value = developerViewModels
+            }
+        }
+        
         store.didUpdateStore = {
             updateDevelopers()
         }
         updateDevelopers()
     }
     
+    
     var developers: [Developer]? {
         didSet {
             if oldValue != developers {
-                developerCellViewModels = developers?.map { DeveloperCellViewModel(with: $0) }
             }
         }
     }
     
-    var developerCellViewModels: [DeveloperCellViewModel]? {
-        didSet {
-            self.reloadTableViewClosure?()
-        }
-    }
-    
-    //Bindings
-    var reloadTableViewClosure: (() -> Void)?
-    var didSelectDeveloper: ((Developer) -> Void)?
-    
-    
-    //TableView Sources
-    func numberOfSections() -> Int {
-        return 1
-    }
-    
-    func numberOfRows(in section: Int) -> Int {
-        return developerCellViewModels?.count ?? 0
-    }
-    
-    func cellModel(at indexPath: IndexPath) -> DeveloperCellViewModel {
-        return developerCellViewModels![indexPath.row]
-    }
-    
-    func selectCellModelAt(indexPath: IndexPath) {
-        let developer = developers![indexPath.row]
-        didSelectDeveloper?(developer)
-    }
+
 }

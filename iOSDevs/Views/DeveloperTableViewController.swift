@@ -11,37 +11,39 @@ import CoreData
 
 class DeveloperTableViewController: UITableViewController {
     
-    lazy var viewModel = DeveloperTableViewViewModel(with: DeveloperStore.defaultStore)
+    lazy var viewModel = DeveloperListModelView(with: DeveloperStore.defaultStore)
     
     // MARK: - View LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupModelViewBindings()
+        setupView()
     }
     
-    private func setupModelViewBindings() {
-        
-        viewModel.reloadTableViewClosure = { [weak self] () in
+    private func setupView() {
+        //Bind to cell view models
+        viewModel.developerCellViewModels.bindAndFire { [unowned self] developeCellViewModels in
             DispatchQueue.main.async {
-                self?.tableView.reloadData()
+                self.tableView.reloadData()
             }
         }
         
-        viewModel.didSelectDeveloper = { [weak self] developer in
-            self?.performSegue(withIdentifier: "showDeveloper", sender: developer)
+        //Bind selected developer
+        viewModel.selectedDeveloper.bind { [unowned self] developer in
+            DispatchQueue.main.async {
+               self.performSegue(withIdentifier: "showDeveloper", sender: developer)
+            }
         }
     }
     
     // MARK: - TableView DataSource
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.numberOfRows(in: section)
+        return viewModel.numberOfDevelopers()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "developerCell", for: indexPath)
         
-        let cellViewModel = viewModel.cellModel(at: indexPath)
+        let cellViewModel = viewModel.developerCellViewModel(at: indexPath.row)
         cell.textLabel?.text = cellViewModel.title
         cell.detailTextLabel?.text = cellViewModel.subTitle
         
@@ -49,7 +51,7 @@ class DeveloperTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        viewModel.selectCellModelAt(indexPath: indexPath)
+        viewModel.selectDeveloperCell(at: indexPath.row)
     }
     
 }
