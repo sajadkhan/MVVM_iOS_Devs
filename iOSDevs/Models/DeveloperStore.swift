@@ -13,7 +13,7 @@ protocol StoreEntryDeveloper {
     var name: String { get set }
     var email: String { get set }
     var phone: String { get set }
-    var experience: String { get set }
+    var experience: Int { get set }
     var country: String { get set }
     var isAvailable: Bool { get set }
 }
@@ -56,12 +56,12 @@ class DeveloperStore: DeveloperStoreFetcher, DeveloperStoreModifier {
         }
     }
     
-    func postNotificationForStoreChange() {
-        let notification = Notification(name: Notification.Name(rawValue: DeveloperStore.storeModifiedNotification))
+    private func postNotificationForStoreChange() {
+        let notification = Notification(name: DeveloperStore.storeModifiedNotification)
         NotificationCenter.default.post(notification)
     }
     
     
-    static let storeModifiedNotification = "storeModifiedNotification"
+    static let storeModifiedNotification = Notification.Name(rawValue: "storeModifiedNotification")
     
 }

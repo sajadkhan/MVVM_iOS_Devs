@@ -17,7 +17,7 @@ class Developer: NSManagedObject {
         developer.name = entry.name
         developer.email = entry.email
         developer.phone = entry.phone
-        developer.experience = Int32(entry.experience)!
+        developer.experience = Int32(entry.experience)
         developer.isAvailable = entry.isAvailable
         developer.country = entry.country
         

@@ -19,7 +19,7 @@ class AddDeveloperViewController: UITableViewController {
     
     @IBOutlet weak var isAvailableSwitch: UISwitch!
     
-    let store: DeveloperStoreModifier? = nil
+    var store: DeveloperStoreModifier? = nil
     
     //MARK: - View LifeCycle
     override func viewDidLoad() {
@@ -68,13 +68,13 @@ class AddDeveloperViewController: UITableViewController {
         return DeveloperEntry(name: name,
                               email: email,
                               phone: phone,
-                              experience: experience,
+                              experience: Int(experience)!,
                               country: country,
                               isAvailable: isAvailable)
     }
     
     //Validate Input
     private func validateInput() -> Bool {
-        return (emailTextField.text?.isEmpty)! || (nameTextField.text?.isEmpty)! || (phoneTextField.text?.isEmpty)!
+        return !(emailTextField.text?.isEmpty)! && !(nameTextField.text?.isEmpty)! && !(phoneTextField.text?.isEmpty)! && !(experienceTextField.text?.isEmpty)!
     }
 }

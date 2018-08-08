@@ -13,7 +13,7 @@ struct DeveloperEntry: StoreEntryDeveloper {
     var name: String
     var email: String
     var phone: String
-    var experience: String
+    var experience: Int
     var country: String
     var isAvailable: Bool
 }
