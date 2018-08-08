@@ -52,6 +52,12 @@ class DeveloperTableViewController: UITableViewController {
         return cell
     }
     
+    // MARK: - TableView Delegate
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let developer = developers![indexPath.row]
+        performSegue(withIdentifier: "showDeveloper", sender: developer)
+    }
+    
     // MARK: - Store Changes
     @objc func storeIsChanged() {
         refreshFromStore()
@@ -66,6 +72,11 @@ class DeveloperTableViewController: UITableViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let destinationVC = segue.destination.contents as? AddDeveloperViewController {
             destinationVC.store = self.store as? DeveloperStoreModifier
+        }
+        else if segue.identifier == "showDeveloper",
+            let developerDetailVC = segue.destination as? DeveloperDetailViewController,
+            let developer = sender as? Developer {
+            developerDetailVC.developer = developer
         }
     }
     

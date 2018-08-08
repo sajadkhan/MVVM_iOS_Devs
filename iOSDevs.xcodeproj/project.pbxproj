@@ -18,6 +18,7 @@
 		06748098211AD38600F1B92A /* AddDeveloperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06748097211AD38600F1B92A /* AddDeveloperViewController.swift */; };
 		0674809A211ADCDC00F1B92A /* DeveloperEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06748099211ADCDC00F1B92A /* DeveloperEntry.swift */; };
 		0674809C211AE1AA00F1B92A /* UIViewController+Contents.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674809B211AE1AA00F1B92A /* UIViewController+Contents.swift */; };
+		0674809F211B08CA00F1B92A /* DeveloperDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0674809E211B08CA00F1B92A /* DeveloperDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		06748097211AD38600F1B92A /* AddDeveloperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeveloperViewController.swift; sourceTree = "<group>"; };
 		06748099211ADCDC00F1B92A /* DeveloperEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperEntry.swift; sourceTree = "<group>"; };
 		0674809B211AE1AA00F1B92A /* UIViewController+Contents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Contents.swift"; sourceTree = "<group>"; };
+		0674809E211B08CA00F1B92A /* DeveloperDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			children = (
 				0674808C211AC39D00F1B92A /* DeveloperTableViewController.swift */,
 				06748097211AD38600F1B92A /* AddDeveloperViewController.swift */,
+				0674809E211B08CA00F1B92A /* DeveloperDetailViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -203,6 +206,7 @@
 			files = (
 				0674809C211AE1AA00F1B92A /* UIViewController+Contents.swift in Sources */,
 				06748093211AC7E100F1B92A /* Developer.swift in Sources */,
+				0674809F211B08CA00F1B92A /* DeveloperDetailViewController.swift in Sources */,
 				0674808D211AC39D00F1B92A /* DeveloperTableViewController.swift in Sources */,
 				06748098211AD38600F1B92A /* AddDeveloperViewController.swift in Sources */,
 				0674809A211ADCDC00F1B92A /* DeveloperEntry.swift in Sources */,
