@@ -23,6 +23,9 @@
 		067480A3211B1E5900F1B92A /* DeveloperCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067480A2211B1E5900F1B92A /* DeveloperCellViewModel.swift */; };
 		067480A7211B37B600F1B92A /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067480A6211B37B600F1B92A /* Dynamic.swift */; };
 		067480A8211B424000F1B92A /* DeveloperDetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 067480A4211B35B500F1B92A /* DeveloperDetailViewViewModel.swift */; };
+		06CA526A211B4EA900031431 /* AddDeveloperViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CA5269211B4EA900031431 /* AddDeveloperViewViewModel.swift */; };
+		06CA526C211B4FA100031431 /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CA526B211B4FA100031431 /* BindingTextField.swift */; };
+		06CA526E211B539200031431 /* BindingSwitch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06CA526D211B539200031431 /* BindingSwitch.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +47,9 @@
 		067480A2211B1E5900F1B92A /* DeveloperCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperCellViewModel.swift; sourceTree = "<group>"; };
 		067480A4211B35B500F1B92A /* DeveloperDetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeveloperDetailViewViewModel.swift; sourceTree = "<group>"; };
 		067480A6211B37B600F1B92A /* Dynamic.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
+		06CA5269211B4EA900031431 /* AddDeveloperViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddDeveloperViewViewModel.swift; sourceTree = "<group>"; };
+		06CA526B211B4FA100031431 /* BindingTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
+		06CA526D211B539200031431 /* BindingSwitch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingSwitch.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +97,7 @@
 				067480A0211B1E0800F1B92A /* DeveloperTableViewViewModel.swift */,
 				067480A2211B1E5900F1B92A /* DeveloperCellViewModel.swift */,
 				067480A4211B35B500F1B92A /* DeveloperDetailViewViewModel.swift */,
+				06CA5269211B4EA900031431 /* AddDeveloperViewViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -98,6 +105,8 @@
 		0674808F211AC78300F1B92A /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				06CA526B211B4FA100031431 /* BindingTextField.swift */,
+				06CA526D211B539200031431 /* BindingSwitch.swift */,
 				067480A6211B37B600F1B92A /* Dynamic.swift */,
 				0674809D211AE1BF00F1B92A /* Helpers */,
 				06748075211AC04700F1B92A /* AppDelegate.swift */,
@@ -220,11 +229,14 @@
 				0674809C211AE1AA00F1B92A /* UIViewController+Contents.swift in Sources */,
 				067480A8211B424000F1B92A /* DeveloperDetailViewViewModel.swift in Sources */,
 				06748093211AC7E100F1B92A /* Developer.swift in Sources */,
+				06CA526A211B4EA900031431 /* AddDeveloperViewViewModel.swift in Sources */,
 				067480A3211B1E5900F1B92A /* DeveloperCellViewModel.swift in Sources */,
 				0674809F211B08CA00F1B92A /* DeveloperDetailViewController.swift in Sources */,
+				06CA526C211B4FA100031431 /* BindingTextField.swift in Sources */,
 				067480A1211B1E0800F1B92A /* DeveloperTableViewViewModel.swift in Sources */,
 				0674808D211AC39D00F1B92A /* DeveloperTableViewController.swift in Sources */,
 				06748098211AD38600F1B92A /* AddDeveloperViewController.swift in Sources */,
+				06CA526E211B539200031431 /* BindingSwitch.swift in Sources */,
 				0674809A211ADCDC00F1B92A /* DeveloperEntry.swift in Sources */,
 				0674807E211AC04700F1B92A /* iOSDevs.xcdatamodeld in Sources */,
 				06748096211ACC2600F1B92A /* DeveloperStore.swift in Sources */,

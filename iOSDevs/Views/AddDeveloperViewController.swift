@@ -11,19 +11,54 @@ import UIKit
 class AddDeveloperViewController: UITableViewController {
 
     //Mark: - Outlets
-    @IBOutlet weak var nameTextField: UITextField!
-    @IBOutlet weak var emailTextField: UITextField!
-    @IBOutlet weak var phoneTextField: UITextField!
-    @IBOutlet weak var experienceTextField: UITextField!
-    @IBOutlet weak var countryTextField: UITextField!
+    @IBOutlet weak var nameTextField: BindingTextField! {
+        didSet {
+            nameTextField.bind { self.viewModel.name.value = $0 }
+        }
+    }
+    @IBOutlet weak var emailTextField: BindingTextField! {
+        didSet {
+            emailTextField.bind { self.viewModel.email.value = $0 }
+        }
+    }
+    @IBOutlet weak var phoneTextField: BindingTextField! {
+        didSet {
+            phoneTextField.bind { self.viewModel.phone.value = $0 }
+        }
+    }
+    @IBOutlet weak var experienceTextField: BindingTextField! {
+        didSet {
+            experienceTextField.bind { self.viewModel.experience.value = $0 }
+        }
+    }
+    @IBOutlet weak var countryTextField: BindingTextField! {
+        didSet {
+            countryTextField.bind { self.viewModel.country.value = $0 }
+        }
+    }
     
-    @IBOutlet weak var isAvailableSwitch: UISwitch!
+    @IBOutlet weak var isAvailableSwitch: BindingSwitch! {
+        didSet {
+            isAvailableSwitch.bind { self.viewModel.available.value = $0.isOn ? "Yes" : "No" }
+        }
+    }
     
-    var store: DeveloperStoreModifier? = nil
     
-    //MARK: - View LifeCycle
+    //View Model
+    var viewModel = AddDeveloperViewModel(with: DeveloperStore.defaultStore)
+    
+    //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setupUI()
+    }
+    
+    func setupUI() {
+        viewModel.feedback.bindAndFire { [weak self] feedback in
+            if feedback != nil {
+                self?.showAlert(with: feedback!)
+            }
+        }
     }
     
     //MARK: - IBActions
@@ -33,47 +68,26 @@ class AddDeveloperViewController: UITableViewController {
     }
     
     @IBAction func donePressed(_ sender: UIBarButtonItem) {
-        if validateInput() {
-            //Save In store
-            if let store = store {
-                let entry = createDeveloperEntry()
-                store.addDeveloper(entry)
-            }
+        if viewModel.addToStore() {
             dismiss(animated: true)
-        } else {
-            //Show Alert
-            let alert = UIAlertController(title: "Invalid Input",
-                                          message: "Please fill the required fields.",
-                                          preferredStyle: .alert)
-            
-            alert.addAction(UIAlertAction(title: "Cancel",
-                                          style: .cancel,
-                                          handler: nil))
-            
-            present(alert, animated: true, completion: nil)
-            
         }
     }
     
-    //Create a Developer Entry from user input.
-    private func createDeveloperEntry() -> DeveloperEntry {
-        let name = nameTextField.text!
-        let email = emailTextField.text!
-        let phone = phoneTextField.text!
-        let experience = experienceTextField.text!
-        let country = countryTextField.text!
-        let isAvailable = isAvailableSwitch.isOn
+    private func showAlert(with feedback: Feedback) {
+        let alert = UIAlertController(title: feedback.title ,
+                                      message: feedback.message,
+                                      preferredStyle: .alert)
         
-        return DeveloperEntry(name: name,
-                              email: email,
-                              phone: phone,
-                              experience: Int(experience)!,
-                              country: country,
-                              isAvailable: isAvailable)
+        if let fdAction = feedback.action {
+            alert.addAction(UIAlertAction(title: fdAction.name,
+                                          style: .cancel,
+                                          handler: { action in
+                fdAction.completion?()
+            }
+            ))
+        }
+        
+        present(alert, animated: true, completion: nil)
     }
     
-    //Validate Input
-    private func validateInput() -> Bool {
-        return !(emailTextField.text?.isEmpty)! && !(nameTextField.text?.isEmpty)! && !(phoneTextField.text?.isEmpty)! && !(experienceTextField.text?.isEmpty)!
-    }
 }

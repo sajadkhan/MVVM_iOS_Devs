@@ -9,16 +9,30 @@
 import Foundation
 
 
+protocol DeveloperDetailViewViewModel {
+    var name: Dynamic<String> { get }
+    var email: Dynamic<String> { get }
+    var phone: Dynamic<String> { get }
+    var experience: Dynamic<String> { get }
+    var country: Dynamic<String> { get }
+    var available: Dynamic<String> { get }
+}
 
-class DeveloperDetailViewViewModel {
+class DeveloperDetailViewModel: DeveloperDetailViewViewModel {
+    var name: Dynamic<String>
+    var email: Dynamic<String>
+    var phone: Dynamic<String>
+    var experience: Dynamic<String>
+    var country: Dynamic<String>
+    var available: Dynamic<String>
     
-    var developer: Developer!
-    
-    init(_ developer: Developer) {
-        self.developer = developer
+    init(with developer: Developer) {
+        name = Dynamic(developer.name ?? "")
+        email = Dynamic(developer.email ?? "")
+        phone = Dynamic(developer.phone ?? "")
+        experience = Dynamic("\(developer.experience) years")
+        country = Dynamic(developer.country ?? "")
+        available = Dynamic(developer.isAvailable ? "Yes" : "No")
+        
     }
-    
-    //Bindings
-    
-    let name: Dynamic<String>
 }

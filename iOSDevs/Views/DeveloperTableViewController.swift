@@ -56,16 +56,16 @@ class DeveloperTableViewController: UITableViewController {
     
 }
 
+
+//Navigation is yet to be implemented using MVVM
+
 extension DeveloperTableViewController {
     //MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if let destinationVC = segue.destination.contents as? AddDeveloperViewController {
-            destinationVC.store = self.viewModel.store
-        }
-        else if segue.identifier == "showDeveloper",
+        if segue.identifier == "showDeveloper",
             let developerDetailVC = segue.destination as? DeveloperDetailViewController,
             let developer = sender as? Developer {
-            developerDetailVC.developer = developer
+            developerDetailVC.viewModel = DeveloperDetailViewModel(with: developer)
         }
     }
 }

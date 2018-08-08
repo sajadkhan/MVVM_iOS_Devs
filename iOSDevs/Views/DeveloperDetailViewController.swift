@@ -18,30 +18,59 @@ class DeveloperDetailViewController: UIViewController {
     @IBOutlet weak var countryLabel: UILabel!
     @IBOutlet weak var availablityLabel: UILabel!
     
-    //MARK: - Model
-    var developer: Developer? {
+    //MARK: - Model View
+    
+    var viewModel: DeveloperDetailViewModel? {
         didSet {
-            if developer != nil {
-                updateUI(with: developer!)
+            if viewModel != nil {
+                setupUI()
             }
         }
     }
-    
+   
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let developer = developer {
-            updateUI(with: developer)
-        }
+        setupUI()
+    
     }
     
-    private func updateUI(with developer: Developer) {
-        nameLabel?.text = developer.name
-        emailLabel?.text = developer.email
-        phoneLabel?.text = developer.phone
-        experienceLabel?.text = "\(developer.experience) years"
-        countryLabel?.text = developer.country
-        availablityLabel?.text = developer.isAvailable ? "Yes" : "No"
+    private func setupUI() {
+        viewModel?.name.bindAndFire { [unowned self] name in
+            DispatchQueue.main.async {
+                self.nameLabel?.text = name
+            }
+        }
+        
+        viewModel?.email.bindAndFire { [unowned self] email in
+            DispatchQueue.main.async {
+                self.emailLabel?.text = email
+            }
+        }
+        
+        viewModel?.phone.bindAndFire { [unowned self] phone in
+            DispatchQueue.main.async {
+                self.phoneLabel?.text = phone
+            }
+        }
+        
+        viewModel?.experience.bindAndFire { [unowned self] experience in
+            DispatchQueue.main.async {
+                self.experienceLabel?.text = experience
+            }
+        }
+        
+        viewModel?.available.bindAndFire { [unowned self] available in
+            DispatchQueue.main.async {
+                self.availablityLabel?.text = available
+            }
+        }
+        
+        viewModel?.country.bindAndFire { [unowned self] country in
+            DispatchQueue.main.async {
+                self.countryLabel?.text = country
+            }
+        }
     }
     
 

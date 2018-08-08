@@ -39,13 +39,13 @@ class DeveloperListModelView: DeveloperTableViewViewModel {
     
     let selectedDeveloper: Dynamic<Developer?> = Dynamic(nil)
     
-    var store: DeveloperStore!
+    var store: DeveloperStoreFetcher!
     
     init(with store: DeveloperStore) {
         
         let updateDevelopers = {
             self.developers = try? store.fetchAllDevelopers()
-            if let developers = self.developers{
+            if let developers = self.developers {
                 let developerViewModels = developers.map { DeveloperCellViewModel(with: $0) }
                 self.developerCellViewModels.value = developerViewModels
             }
